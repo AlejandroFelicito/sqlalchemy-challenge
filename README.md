@@ -24,6 +24,7 @@ In this section, you’ll use Python and SQLAlchemy to do a basic climate analys
 2. Use the SQLAlchemy _create_engine()_ function to connect to your SQLite database.
 3. Use the SQLAlchemy _automap_base()_ function to reflect your tables into classes, and then save references to the classes named _station_ and _measurement_.
 4. Link Python to the database by creating a SQLAlchemy session.
+
 IMPORTANT
 > Remember to close your session at the end of your notebook.
 5. Perform a precipitation analysis and then a station analysis by completing the steps in the following two subsections.
@@ -32,6 +33,7 @@ IMPORTANT
 #### Precipitation Analysis
 1. Find the most recent date in the dataset.
 2. Using that date, get the previous 12 months of precipitation data by querying the previous 12 months of data.
+
 HINT
 > Don’t pass the date as a variable to your query.
 3. Select only the "date" and "prcp" values.
@@ -45,12 +47,14 @@ HINT
 1. Design a query to calculate the total number of stations in the dataset.
 2. Design a query to find the most-active stations (that is, the stations that have the most rows). To do so, complete the following steps:
 * List the stations and observation counts in descending order.
+
 HINT
 > You’ll need to use the _func.count_ function in your query.
 * Answer the following question: which station id has the greatest number of observations?
 3. Design a query that calculates the lowest, highest, and average temperatures that filters on the most-active station id found in the previous query.
+
 HINT
-> You’ll need to use functions such as _func.min_, _func.max_, and _func.avg- in your query.
+> You’ll need to use functions such as _func.min_, _func.max_, and _func.avg_ in your query.
 4. Design a query to get the previous 12 months of temperature observation (TOBS) data. To do so, complete the following steps:
 * Filter by the station that has the greatest number of observations.
 * Query the previous 12 months of TOBS data for that station.
@@ -61,18 +65,18 @@ HINT
 ### Part 2: Design Your Climate App
 Now that you’ve completed your initial analysis, you’ll design a Flask API based on the queries that you just developed. To do so, use Flask to create your routes as follows:
 
-1. _/_
+1. /
 * Start at the homepage.
 * List all the available routes.
-2. _/api/v1.0/precipitation_
+2. /api/v1.0/precipitation
 * Convert the query results from your precipitation analysis (i.e. retrieve only the last 12 months of data) to a dictionary using _date_ as the key and _prcp_ as the value.
 * Return the JSON representation of your dictionary.
-3. _/api/v1.0/stations_
+3. /api/v1.0/stations
 * Return a JSON list of stations from the dataset.
-4. _/api/v1.0/tobs_
+4. /api/v1.0/tobs
 * Query the dates and temperature observations of the most-active station for the previous year of data.
 * Return a JSON list of temperature observations for the previous year.
-5. _/api/v1.0/<start>_ and _/api/v1.0/<start>/<end>_
+5. /api/v1.0/<start> and /api/v1.0/<start>/<end>
 * Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
 * For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
 * For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
@@ -122,8 +126,10 @@ Now that you’ve completed your initial analysis, you’ll design a Flask API b
 A **precipitation route** that:
 - [] Returns json with the date as the key and the value as the precipitation (3 points)
 - [] Only returns the jsonified precipitation data for the last year in the database (3 points)
+
 A **stations route** that:
 - [] Returns jsonified data of all of the stations in the database (3 points)
+
 A **tobs route** that:
 - [] Returns jsonified data for the most active station (USC00519281) (3 points)
 - [] Only returns the jsonified data for the last year of data (3 points)
@@ -133,6 +139,7 @@ A **tobs route** that:
 A **start route** that:
 - [] Accepts the start date as a parameter from the URL (2 points)
 - [] Returns the min, max, and average temperatures calculated from the given start date to the end of the dataset (4 points)
+
 A **start/end route** that:
 - [] Accepts the start and end dates as parameters from the URL (3 points)
 - [] Returns the min, max, and average temperatures calculated from the given start date to the given end date (6 points)

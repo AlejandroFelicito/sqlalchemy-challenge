@@ -76,7 +76,7 @@ Now that you’ve completed your initial analysis, you’ll design a Flask API b
 4. /api/v1.0/tobs
 * Query the dates and temperature observations of the most-active station for the previous year of data.
 * Return a JSON list of temperature observations for the previous year.
-5. /api/v1.0/<start> and /api/v1.0/<start>/<end>
+5. /api/v1.0/start and /api/v1.0/start/end
 * Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
 * For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
 * For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
@@ -89,77 +89,77 @@ Now that you’ve completed your initial analysis, you’ll design a Flask API b
 
 ## Requirements 
 ### Jupyter Notebook Database Connection (10 points)
-- [] Use the SQLAlchemy _create_engine()_ function to connect to your SQLite database (1 point)
-- [] Use the SQLAlchemy _automap_base()_ function to reflect your tables into classes (3 points)
-- [] Save references to the classes named _station_ and _measurement_ (4 points)
-- [] Link Python to the database by creating a SQLAlchemy session (1 point)
-- [] Close your session at the end of your notebook (1 point)
+- [X] Use the SQLAlchemy _create_engine()_ function to connect to your SQLite database (1 point)
+- [X] Use the SQLAlchemy _automap_base()_ function to reflect your tables into classes (3 points)
+- [X] Save references to the classes named _station_ and _measurement_ (4 points)
+- [X] Link Python to the database by creating a SQLAlchemy session (1 point)
+- [X] Close your session at the end of your notebook (1 point)
 
 
 ### Precipitation Analysis (16 points)
-- [] Create a query that finds the most recent date in the dataset (8/23/2017) (2 points)
-- [] Create a query that collects only the _date_ and _precipitation_ for the last year of data without passing the date as a variable (4 points)
-- [] Save the query results to a Pandas DataFrame to create _date_ and _precipitation_ columns (2 points)
-- [] Sort the DataFrame by _date_ (2 points)
-- [] Plot the results by using the DataFrame _plot_ method with _date_ as the x and _precipitation_ as the y variables (4 points)
-- [] Use Pandas to print the summary statistics for the precipitation data (2 points)
+- [X] Create a query that finds the most recent date in the dataset (8/23/2017) (2 points)
+- [X] Create a query that collects only the _date_ and _precipitation_ for the last year of data without passing the date as a variable (4 points)
+- [X] Save the query results to a Pandas DataFrame to create _date_ and _precipitation_ columns (2 points)
+- [X] Sort the DataFrame by _date_ (2 points)
+- [X] Plot the results by using the DataFrame _plot_ method with _date_ as the x and _precipitation_ as the y variables (4 points)
+- [X] Use Pandas to print the summary statistics for the precipitation data (2 points)
 
 
 ### Station Analysis (16 points)
-- [] Design a query that correctly finds the number of stations in the dataset (9) (2 points)
-- [] Design a query that correctly lists the stations and observation counts in descending order and finds the most active station (USC00519281) (2 points)
-- [] Design a query that correctly finds the min, max, and average temperatures for the most active station (USC00519281) (3 points)
-- [] Design a query to get the previous 12 months of temperature observation (TOBS) data that filters by the station that has the greatest number of observations (3 points)
-- [] Save the query results to a Pandas DataFrame (2 points)
-- [] Correctly plot a histogram with _bins=12_ for the last year of data using _tobs_ as the column to count. (4 points)
+- [X] Design a query that correctly finds the number of stations in the dataset (9) (2 points)
+- [X] Design a query that correctly lists the stations and observation counts in descending order and finds the most active station (USC00519281) (2 points)
+- [X] Design a query that correctly finds the min, max, and average temperatures for the most active station (USC00519281) (3 points)
+- [X] Design a query to get the previous 12 months of temperature observation (TOBS) data that filters by the station that has the greatest number of observations (3 points)
+- [X] Save the query results to a Pandas DataFrame (2 points)
+- [X] Correctly plot a histogram with _bins=12_ for the last year of data using _tobs_ as the column to count. (4 points)
 
 
 ### API SQLite Connection & Landing Page (10 points)
-- [] Correctly generate the engine to the correct sqlite file (2 points) 
-- [] Use _automap_base()_ and reflect the database schema (2 points)
-- [] Correctly save references to the tables in the sqlite file (_measurement_ and _station_) (2 points)
-- [] Correctly create and bind the session between the python app and database (2 points)
-- [] Display the available routes on the landing page (2 points)
+- [X] Correctly generate the engine to the correct sqlite file (2 points) 
+- [X] Use _automap_base()_ and reflect the database schema (2 points)
+- [X] Correctly save references to the tables in the sqlite file (_measurement_ and _station_) (2 points)
+- [X] Correctly create and bind the session between the python app and database (2 points)
+- [X] Display the available routes on the landing page (2 points)
 
 
 ### API Static Routes (15 points)
 A **precipitation route** that:
-- [] Returns json with the date as the key and the value as the precipitation (3 points)
-- [] Only returns the jsonified precipitation data for the last year in the database (3 points)
+- [X] Returns json with the date as the key and the value as the precipitation (3 points)
+- [X] Only returns the jsonified precipitation data for the last year in the database (3 points)
 
 A **stations route** that:
-- [] Returns jsonified data of all of the stations in the database (3 points)
+- [X] Returns jsonified data of all of the stations in the database (3 points)
 
 A **tobs route** that:
-- [] Returns jsonified data for the most active station (USC00519281) (3 points)
-- [] Only returns the jsonified data for the last year of data (3 points)
+- [X] Returns jsonified data for the most active station (USC00519281) (3 points)
+- [X] Only returns the jsonified data for the last year of data (3 points)
 
 
 ### API Dynamic Route (15 points)
 A **start route** that:
-- [] Accepts the start date as a parameter from the URL (2 points)
-- [] Returns the min, max, and average temperatures calculated from the given start date to the end of the dataset (4 points)
+- [X] Accepts the start date as a parameter from the URL (2 points)
+- [X] Returns the min, max, and average temperatures calculated from the given start date to the end of the dataset (4 points)
 
 A **start/end route** that:
-- [] Accepts the start and end dates as parameters from the URL (3 points)
-- [] Returns the min, max, and average temperatures calculated from the given start date to the given end date (6 points)
+- [X] Accepts the start and end dates as parameters from the URL (3 points)
+- [X] Returns the min, max, and average temperatures calculated from the given start date to the given end date (6 points)
 
 
 ### Coding Conventions and Formatting (8 points)
-- [] Place imports at the top of the file, just after any module comments and docstrings, and before module globals and constants. (2 points)
-- [] Name functions and variables with lowercase characters, with words separated by underscores. (2 points)
-- [] Follow DRY (Don't Repeat Yourself) principles, creating maintainable and reusable code. (2 points)
-- [] Use concise logic and creative engineering where possible. (2 points)
+- [X] Place imports at the top of the file, just after any module comments and docstrings, and before module globals and constants. (2 points)
+- [X] Name functions and variables with lowercase characters, with words separated by underscores. (2 points)
+- [X] Follow DRY (Don't Repeat Yourself) principles, creating maintainable and reusable code. (2 points)
+- [X] Use concise logic and creative engineering where possible. (2 points)
 
 
 ### Deployment and Submission (6 points)
-- [] Submit a link to a GitHub repository that’s cloned to your local machine and contains your files. (2 points)
-- [] Use the command line to add your files to the repository. (2 points)
-- [] Include appropriate commit messages in your files. (2 points)
+- [x] Submit a link to a GitHub repository that’s cloned to your local machine and contains your files. (2 points)
+- [X] Use the command line to add your files to the repository. (2 points)
+- [X] Include appropriate commit messages in your files. (2 points)
 
 
 ### Comments (4 points)
-- [] Be well commented with concise, relevant notes that other developers can understand. (4 points)
+- [X] Be well commented with concise, relevant notes that other developers can understand. (4 points)
 
 
 ## Submission  
@@ -167,4 +167,5 @@ To submit your Challenge assignment, click Submit, and then provide the URL of y
 
 
 ## Credits 
-N/A 
+* Received comments and guidance from Instructor, Teaching Assistant 
+* Used StackOverflow, SQLAlchemy, Flask documentation for specific details
